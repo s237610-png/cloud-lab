@@ -1,5 +1,3 @@
-# Cloud Computing Laboratory
-Student Name:
-Student ID:
-Class:
-Updated content for step 14
+Student Name: Huỳnh Nhật Duy
+Student ID: 237610
+Class: DH23TIN09
