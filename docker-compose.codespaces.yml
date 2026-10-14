@@ -1,0 +1,13 @@
+services:
+  backend:
+    build: ./server
+    container_name: mern-backend
+    network_mode: host
+    env_file:
+      - ./server/.env
+
+  frontend:
+    build: ./client
+    container_name: mern-frontend
+    ports:
+      - "3000:80"

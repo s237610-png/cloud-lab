@@ -70,7 +70,7 @@ export default function App() {
   return (
     <div style={{ backgroundColor: '#121214', color: '#ffffff', minHeight: '100vh', padding: '40px 20px', fontFamily: 'sans-serif' }}>
       <div style={{ maxWidth: '650px', margin: '0 auto' }}>
-        <h1 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom: '25px' }}>Quản Lý Sinh Viên-Vession2</h1>
+        <h1 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom: '25px' }}>Quản Lý Sinh Viên - Version 2</h1>
 
         {/* Khung Form nhập dữ liệu */}
         <div style={{ border: '1px solid #2d2d32', borderRadius: '8px', padding: '25px', backgroundColor: '#18181c', marginBottom: '30px' }}>
