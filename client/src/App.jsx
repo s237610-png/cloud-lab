@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
+const API = window.location.hostname.endsWith('.app.github.dev')
+  ? `https://${window.location.hostname.replace('-3000.', '-5000.')}`
+  : 'http://localhost:5000';
+
 export default function App() {
   const [students, setStudents] = useState([]);
   const [form, setForm] = useState({ studentId: '', name: '', email: '' });
   const [editingId, setEditingId] = useState(null);
 
   const fetchStudents = () => {
-    fetch('http://localhost:5000/api/students')
+    fetch(`${API}/api/students`)
       .then(res => res.json())
       .then(data => setStudents(Array.isArray(data) ? data : []))
       .catch(err => console.error(err));
@@ -20,7 +24,7 @@ export default function App() {
     e.preventDefault();
     if (editingId) {
       // Cập nhật sinh viên
-      fetch(`http://localhost:5000/api/students/${editingId}`, {
+      fetch(`${API}/api/students/${editingId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
@@ -30,7 +34,7 @@ export default function App() {
       });
     } else {
       // Thêm mới sinh viên
-      fetch('http://localhost:5000/api/students', {
+      fetch(`${API}/api/students`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
@@ -52,7 +56,7 @@ export default function App() {
 
   const handleDelete = (id) => {
     if (window.confirm("Bạn có chắc chắn muốn xóa sinh viên này?")) {
-      fetch(`http://localhost:5000/api/students/${id}`, {
+      fetch(`${API}/api/students/${id}`, {
         method: 'DELETE'
       }).then(() => fetchStudents());
     }
@@ -66,7 +70,7 @@ export default function App() {
   return (
     <div style={{ backgroundColor: '#121214', color: '#ffffff', minHeight: '100vh', padding: '40px 20px', fontFamily: 'sans-serif' }}>
       <div style={{ maxWidth: '650px', margin: '0 auto' }}>
-        <h1 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom: '25px' }}>Quản Lý Sinh Viên</h1>
+        <h1 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom: '25px' }}>Quản Lý Sinh Viên-Vession2</h1>
 
         {/* Khung Form nhập dữ liệu */}
         <div style={{ border: '1px solid #2d2d32', borderRadius: '8px', padding: '25px', backgroundColor: '#18181c', marginBottom: '30px' }}>

@@ -1,0 +1,25 @@
+services:
+  backend:
+    image: typhoon0601/mern-backend:1.0
+    container_name: mern-backend-hub
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./server/.env
+    networks:
+      - mern-network
+
+  frontend:
+    image: typhoon0601/mern-frontend:1.0
+    container_name: mern-frontend-hub
+    ports:
+      - "3000:80"
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
