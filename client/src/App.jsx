@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-const API = window.location.hostname.endsWith('.app.github.dev')
-  ? `https://${window.location.hostname.replace('-3000.', '-5000.')}`
-  : 'http://localhost:5000';
+const API = (window.__API_URL__
+  || (window.location.hostname.endsWith('.app.github.dev')
+    ? `https://${window.location.hostname.replace('-3000.', '-5000.')}`
+    : 'http://localhost:5000')).replace(/\/$/, '');
 
 export default function App() {
   const [students, setStudents] = useState([]);
